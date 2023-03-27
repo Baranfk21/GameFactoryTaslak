@@ -12,19 +12,26 @@ public class Sliceobjects : MonoBehaviour
     public bool gravity, kinematic;
 
 
-    private void OnTriggerEnter(Collider other)
+    public void OnSliceEnter(Collider other)
     {
+
         if(other.gameObject.CompareTag("CanSlice"))
         {
-
+   
             SlicedHull sliceobj = slice(other.gameObject, materialslicedside);
             GameObject SlicedObjTop = sliceobj.CreateUpperHull(other.gameObject, materialslicedside);
             GameObject SliceObjDown=sliceobj.CreateLowerHull(other.gameObject, materialslicedside);
             Destroy(other.gameObject);
             AddComponent(SlicedObjTop);
             AddComponent(SliceObjDown);
-
-
+        }
+        if (other.gameObject.CompareTag("CanDivide"))
+        {
+            DivideableObject dob = other.transform.GetComponent<DivideableObject>();
+            if (dob!= null)
+            {
+                dob.objectAyir();
+            }
         }
     }
 
@@ -42,7 +49,7 @@ public class Sliceobjects : MonoBehaviour
         rigidbody.useGravity = gravity;
         rigidbody.isKinematic = kinematic;
         rigidbody.AddExplosionForce(ExplosionForce, obj.transform.position,exposionRadius);
-        obj.tag = "CanSlice";
+       // obj.tag = "CanSlice";
 
     }
     // Start is called before the first frame update
@@ -51,9 +58,5 @@ public class Sliceobjects : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }
