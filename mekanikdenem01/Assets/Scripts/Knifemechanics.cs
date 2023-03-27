@@ -14,9 +14,8 @@ public class Knifemechanics : MonoBehaviour
     public GameObject knife;
     public GameObject plane;
 
-
     public float yercekimi = 4f;
-    public float zýplamakatsayisi = 2.3f;
+    public float ziplamakatsayisi = 2.3f;
     public float xhiz = 1.1f;
     public float yhiz = 0f;
     public float yhiz1 = 0f;
@@ -50,8 +49,8 @@ public class Knifemechanics : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             landed = false;
-            yhiz = zýplamakatsayisi;
-            xhiz = zýplamakatsayisi;
+            yhiz = ziplamakatsayisi;
+            xhiz = ziplamakatsayisi;
            
 
 

@@ -6,14 +6,15 @@ TagManager:
   tags:
   - plane
   - CanSlice
+  - CanDivide
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Balta
   - Water
   - UI
-  - 
+  - Slided
   - 
   - 
   - 
